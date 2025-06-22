@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Dataoorts | Our Mission, Team, and Founder</title>
+
+    <!-- External Libraries: Tailwind CSS & Font Awesome Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0D1117',
+                        'brand-blue': '#007BFF',
+                        'brand-teal': '#00C2B8',
+                        'brand-navy': '#161B22',
+                        'brand-border': '#30363d',
+                        'brand-gray': '#C9D1D9',
+                        'nvidia-green': '#76B900',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse-slow 5s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        'pulse-slow': {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(0.95)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117;
+            color: #C9D1D9;
+            scroll-behavior: smooth;
+        }
+        .hero-bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(201, 209, 217, 0.08) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #007BFF, #00C2B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #007BFF, #00C2B8);
+            transition: all 0.3s ease-out;
+        }
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.35), 0 0 15px rgba(0, 194, 184, 0.2);
+            filter: brightness(1.15);
+        }
+        .nav-link-hover:hover {
+            color: #00C2B8;
+            transform: translateY(-1px);
+        }
+        .info-card {
+            background-color: #161B22;
+            border: 1px solid #30363d;
+            transition: box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .info-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 194, 184, 0.15);
+            border-color: #00C2B8;
+        }
+        .section-title-underline {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #007BFF, #00C2B8);
+            border-radius: 9999px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-brand-dark/80 border-b border-brand-border/70 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-3xl font-bold gradient-text">Dataoorts</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="index.html#services" class="nav-link-hover transition-all duration-300">Services</a>
+                <a href="about.html" class="nav-link-hover transition-all duration-300 text-brand-teal">About Us</a>
+                <a href="https://tally.so/r/nrkBjL" target="_blank" class="cta-button text-white px-6 py-2.5 rounded-lg font-semibold text-sm">Contact Us</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border/50">
+            <a href="index.html#services" class="block py-3 px-6 text-sm hover:bg-brand-navy hover:text-brand-teal transition-colors duration-200">Services</a>
+            <a href="about.html" class="block py-3 px-6 text-sm bg-brand-navy text-brand-teal">About Us</a>
+            <a href="https://tally.so/r/nrkBjL" target="_blank" class="block py-3 px-6 text-sm hover:bg-brand-navy hover:text-brand-teal transition-colors duration-200">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-24 sm:py-32 hero-bg-pattern">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white">Engineering the <span class="gradient-text">Future of Intelligence</span></h1>
+                <p class="mt-4 text-lg text-brand-gray max-w-3xl mx-auto">We are a team of pioneers, innovators, and partners dedicated to making custom artificial intelligence accessible and transformative for businesses worldwide.</p>
+            </div>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+                <div class="info-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Our Mission</h3>
+                    <p class="text-brand-gray">To build bespoke generative AI solutions that integrate seamlessly with your business, driving measurable growth, fostering innovation, and delivering a tangible competitive advantage.</p>
+                </div>
+                <div class="info-card rounded-xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">Our Vision</h3>
+                    <p class="text-brand-gray">To be the world's most trusted partner for custom AI development, empowering organizations of all sizes to harness the full potential of their data and unlock new frontiers of possibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section id="founder" class="py-24 sm:py-32 bg-brand-navy">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white section-title-underline">Meet the Founder</h2>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 info-card rounded-2xl p-8">
+                <div class="lg:col-span-1 flex justify-center items-center">
+                    <div class="relative w-48 h-48 lg:w-56 lg:h-56">
+                        <div class="absolute inset-0 bg-brand-blue/20 rounded-full filter blur-xl animate-pulse-slow"></div>
+                        <div class="bg-brand-dark w-full h-full rounded-full flex items-center justify-center border-2 border-brand-teal relative z-10">
+                           <i class="fas fa-user-tie text-6xl text-brand-teal"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 text-center lg:text-left flex flex-col justify-center">
+                    <h3 class="text-3xl md:text-4xl font-bold text-white">Rajat Kumar Vishwakarma</h3>
+                    <p class="mt-2 text-lg font-medium gradient-text">Founder & CEO</p>
+                    <p class="mt-4 text-brand-gray leading-relaxed">
+                        With a deep passion for artificial intelligence and a vision to empower businesses, Rajat founded Dataoorts to deliver cutting-edge, custom AI solutions. His expertise drives the company's strategy and technological innovation, ensuring every project achieves impactful results.
+                    </p>
+                    <div class="mt-8 flex justify-center lg:justify-start items-center space-x-6">
+                        <a href="mailto:rajat@dataoorts.com" class="text-brand-gray hover:text-brand-teal transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fas fa-envelope text-2xl"></i>
+                            <span class="font-medium">Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/rjvishwa" target="_blank" rel="noopener noreferrer" class="text-brand-gray hover:text-brand-teal transition-colors duration-300 flex items-center space-x-2">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                            <span class="font-medium">LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section id="team" class="py-24 sm:py-32 hero-bg-pattern">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold text-white section-title-underline">A Team of Innovators</h2>
+            <p class="mt-4 text-lg text-brand-gray max-w-3xl mx-auto">
+                Dataoorts is powered by a dedicated team of AI researchers, machine learning engineers, and creative strategists who bring a wealth of experience from diverse technological backgrounds. We are united by a shared passion for solving complex challenges and building the future of intelligence.
+            </p>
+            <p class="mt-6 text-lg text-brand-gray max-w-3xl mx-auto">
+                Under the leadership of our founder, <strong class="font-semibold text-white">Rajat Kumar Vishwakarma</strong>, our team collaborates closely with clients, ensuring every solution is not only technologically advanced but also perfectly aligned with their strategic goals. We are problem-solvers, innovators, and your trusted partners on the journey to AI transformation.
+            </p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-brand-navy border-t border-brand-border/50 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+                <div class="md:col-span-2">
+                    <h3 class="text-3xl font-bold gradient-text mb-1">Dataoorts</h3>
+                    <p class="text-brand-gray mt-4 max-w-md text-sm leading-relaxed">Your global partner for custom generative AI solutions. We empower businesses to innovate with confidence and achieve unparalleled results.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white text-lg mb-5">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">About Us</a></li>
+                        <li><a href="https://tally.so/r/nrkBjL" target="_blank" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Contact Us</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Privacy Policy</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-brand-border/30 pt-8 mt-12 text-center text-sm text-brand-gray relative">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-px h-px w-1/4 bg-gradient-to-r from-transparent via-brand-teal/50 to-transparent"></div>
+                <p>© 2025 Dataoorts Inc. All rights reserved. Crafted with AI, for AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            menuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                const icon = menuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    menuButton.querySelector('i').classList.remove('fa-times');
+                    menuButton.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
