@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataoorts - Gen AI Solution</title>
+
+    <!-- External Libraries: Tailwind CSS & Font Awesome Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-dark': '#0D1117',
+                        'brand-blue': '#007BFF',
+                        'brand-teal': '#00C2B8',
+                        'brand-navy': '#161B22',
+                        'brand-border': '#30363d',
+                        'brand-gray': '#C9D1D9',
+                        'nvidia-green': '#76B900',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse-slow 5s infinite ease-in-out',
+                    },
+                    keyframes: {
+                        'pulse-slow': {
+                            '0%, 100%': { opacity: '0.6', transform: 'scale(0.95)' },
+                            '50%': { opacity: '1', transform: 'scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0D1117; /* brand-dark */
+            color: #C9D1D9; /* brand-gray */
+            scroll-behavior: smooth;
+        }
+        .hero-bg-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(201, 209, 217, 0.08) 1px, transparent 0);
+            background-size: 20px 20px;
+        }
+        .service-card {
+            background-color: #161B22; /* brand-navy */
+            border: 1px solid #30363d; /* brand-border */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 194, 184, 0.25); /* brand-teal with alpha */
+            border-color: #00C2B8; /* brand-teal */
+        }
+        .nvidia-partner-card {
+            background: linear-gradient(135deg, #1A202C, #0F141A);
+            border: 1px solid #76B900; /* nvidia-green */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .nvidia-partner-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(118, 185, 0, 0.4); /* nvidia-green with alpha */
+        }
+        .cta-button {
+            background: linear-gradient(90deg, #007BFF, #00C2B8); /* brand-blue to brand-teal */
+            transition: all 0.3s ease-out;
+        }
+        .cta-button:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 123, 255, 0.35), 0 0 15px rgba(0, 194, 184, 0.2);
+            filter: brightness(1.15);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #007BFF, #00C2B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+        .section-title-underline {
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .section-title-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #007BFF, #00C2B8);
+            border-radius: 9999px;
+        }
+        .animation-delay-2s {
+            animation-delay: 2s;
+        }
+        .nav-link-hover:hover {
+            color: #00C2B8; /* brand-teal */
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-brand-dark/80 border-b border-brand-border/70 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold gradient-text">Dataoorts</a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#services" class="nav-link-hover transition-all duration-300">Services</a>
+                <a href="#about" class="nav-link-hover transition-all duration-300">About Us</a>
+                <a href="https://tally.so/r/nrkBjL" target="_blank" class="cta-button text-white px-6 py-2.5 rounded-lg font-semibold text-sm">Contact Us</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-brand-border/50">
+            <a href="#services" class="block py-3 px-6 text-sm hover:bg-brand-navy hover:text-brand-teal transition-colors duration-200">Services</a>
+            <a href="#about" class="block py-3 px-6 text-sm hover:bg-brand-navy hover:text-brand-teal transition-colors duration-200">About Us</a>
+            <a href="https://tally.so/r/nrkBjL" target="_blank" class="block py-3 px-6 text-sm hover:bg-brand-navy hover:text-brand-teal transition-colors duration-200">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-36 hero-bg-pattern overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-brand-dark via-brand-dark/80 to-brand-dark"></div>
+        <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-brand-blue/10 rounded-full filter blur-3xl opacity-50 animate-pulse-slow"></div>
+        <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-brand-teal/10 rounded-full filter blur-3xl opacity-50 animate-pulse-slow animation-delay-2s"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-white mb-6">
+                Powering Your Business with
+                <span class="block mt-2 md:mt-4 gradient-text">Custom Generative AI</span>
+            </h1>
+            <p class="mt-8 text-lg md:text-xl text-brand-gray max-w-3xl mx-auto">
+                From advanced RAG systems to fine-tuned models and real-world applications, we are your global partner in AI innovation. Trusted by over 120 clients worldwide.
+            </p>
+            <div class="mt-12">
+                <a href="https://tally.so/r/nrkBjL" target="_blank" class="cta-button inline-block text-white px-12 py-4 rounded-lg font-bold text-lg shadow-xl">
+                    Start Your AI Project Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients & Partnership Section -->
+    <section id="partnership" class="py-24 bg-brand-navy">
+        <div class="container mx-auto px-6">
+            <h2 class="text-center text-3xl md:text-4xl font-bold text-white section-title-underline">Trusted by Industry Leaders & Innovators</h2>
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-center mt-16">
+                <div class="md:col-span-2 text-center md:text-left">
+                    <p class="text-lg text-brand-gray leading-relaxed">We've successfully delivered <strong class="text-white font-semibold">custom AI solutions</strong> to clients across diverse industries globally, helping businesses unlock new efficiencies, drive innovation, and achieve tangible results. As official NVIDIA Inception Members, we leverage cutting-edge technology.</p>
+                </div>
+                <div class="nvidia-partner-card rounded-xl p-6 flex flex-col items-center text-center shadow-2xl">
+                    <a href="https://logowik.com/nvidia-horizontal-logo-vector-60557.html" target="_blank" rel="noopener noreferrer" class="mb-5">
+                        <img src="https://logowik.com/content/uploads/images/nvidia-horizontal4823.logowik.com.webp" alt="NVIDIA Logo" class="h-12">
+                    </a>
+                    <h4 class="font-bold text-xl text-white">NVIDIA Inception Program Member</h4>
+                    <p class="text-sm text-green-400 mt-2">Leveraging cutting-edge GPU technology and deep learning expertise to build the future of AI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-white section-title-underline">Flexible & Custom Gen AI Services</h2>
+                <p class="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">We build tailored AI solutions that address your unique challenges, integrate seamlessly, and drive measurable growth.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Generative AI Applications</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">End-to-end AI-powered applications, from intelligent chatbots to complex content generation platforms, designed for real-world impact and user engagement.</p>
+                </div>
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-book-reader"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Retrieval-Augmented Generation (RAG)</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">Enhance LLMs with real-time, external knowledge. We build robust RAG systems for accurate, context-aware responses from your private data sources.</p>
+                </div>
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-brain"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">AI Model Fine-Tuning</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">Adapt powerful foundation models to your specific domain. Our fine-tuning process enhances model performance for specialized tasks and terminology.</p>
+                </div>
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-cogs"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Custom Model Training</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">For truly unique requirements, we train AI models from scratch, ensuring a perfect fit for your business logic, data, and performance goals.</p>
+                </div>
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-database"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">Synthetic Data Generation</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">Overcome data scarcity. We generate high-quality, privacy-preserving synthetic data to train and validate your machine learning models effectively.</p>
+                </div>
+                <div class="service-card rounded-xl p-8">
+                    <div class="text-4xl mb-6 text-brand-teal"><i class="fas fa-project-diagram"></i></div>
+                    <h3 class="text-2xl font-semibold text-white mb-4">AI Strategy & Consulting</h3>
+                    <p class="text-brand-gray text-sm leading-relaxed">Develop a strategic AI roadmap. We help you identify high-impact use cases, plan for integration, and define a clear path to AI-driven success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Why Choose Us Section -->
+    <section id="about" class="py-24 bg-brand-navy overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <span class="inline-block bg-brand-teal/10 text-brand-teal px-4 py-1.5 rounded-md text-sm font-semibold tracking-wider mb-4">WHY DATAOORTS</span>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white mt-2 section-title-underline !text-left !pl-0 !transform-none !mb-8">Your Vision, Engineered with AI Precision</h2>
+                    <style>
+                        #about .section-title-underline::after { left: 0; transform: translateX(0); }
+                    </style>
+                    <p class="text-brand-gray mt-6 mb-10 text-lg leading-relaxed">We are more than a service provider; we are your strategic partner in artificial intelligence. We believe in building custom solutions that deliver tangible business value, providing the flexibility and expertise you need to innovate without limits.</p>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-teal text-xl mt-1 mr-4"></i>
+                            <span><strong class="text-white">Global Impact:</strong> Successfully delivered over 120+ global projects, driving innovation worldwide.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-teal text-xl mt-1 mr-4"></i>
+                            <span><strong class="text-white">Completely Custom:</strong> Solutions meticulously tailored to your specific data, workflows, and objectives.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-brand-teal text-xl mt-1 mr-4"></i>
+                            <span><strong class="text-white">Future-Proof Technology:</strong> As NVIDIA Inception members, we build with the best tools and frameworks in the industry.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="lg:w-1/2 mt-12 lg:mt-0 relative flex items-center justify-center min-h-[300px]">
+                    <div class="absolute -top-8 -left-8 w-32 h-32 md:w-48 md:h-48 bg-brand-blue/20 rounded-full filter blur-2xl animate-pulse-slow opacity-70 z-0"></div>
+                    <div class="absolute -bottom-8 -right-8 w-32 h-32 md:w-40 md:h-40 bg-brand-teal/20 rounded-full filter blur-2xl animate-pulse-slow animation-delay-2s opacity-70 z-0"></div>
+                    <div class="text-center relative z-10 p-8">
+                        <h3 class="text-6xl font-extrabold gradient-text">120+</h3>
+                        <p class="text-white text-xl mt-2 font-semibold">Global Projects Delivered</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="py-28 hero-bg-pattern">
+         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark opacity-90"></div>
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-white">Ready to Build Your AI-Powered Future?</h2>
+            <p class="text-lg text-brand-gray max-w-2xl mx-auto mt-6 mb-12">Let's discuss your project. Our experts are ready to help you navigate the complexities of AI and deliver a solution that drives real results and innovation.</p>
+            <a href="https://tally.so/r/nrkBjL" target="_blank" class="cta-button inline-block text-white px-12 py-4 rounded-lg font-bold text-lg shadow-xl">
+                Get a Custom Quote
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-navy border-t border-brand-border/50 pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+                <div class="md:col-span-2">
+                    <h3 class="text-3xl font-bold gradient-text mb-1">Dataoorts</h3>
+                    <p class="text-brand-gray mt-4 max-w-md text-sm leading-relaxed">Your global partner for custom generative AI solutions. We empower businesses to innovate with confidence and achieve unparalleled results.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-white text-lg mb-5">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">About Us</a></li>
+                        <li><a href="https://tally.so/r/nrkBjL" target="_blank" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Contact Us</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Privacy Policy</a></li>
+                        <li><a href="#" class="text-brand-gray hover:text-brand-teal transition-colors duration-200 text-sm nav-link-hover">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-brand-border/30 pt-8 mt-12 text-center text-sm text-brand-gray relative">
+                <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-px h-px w-1/4 bg-gradient-to-r from-transparent via-brand-teal/50 to-transparent"></div>
+                <p>© 2025 Dataoorts Inc. All rights reserved. Crafted with AI, for AI.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Simple JavaScript for Mobile Menu Toggle -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinks = mobileMenu.querySelectorAll('a');
+
+            menuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+                const icon = menuButton.querySelector('i');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    menuButton.querySelector('i').classList.remove('fa-times');
+                    menuButton.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
